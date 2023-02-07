@@ -56,7 +56,7 @@ const Landing = ({story}) => {
 
 
 export async function getStaticProps(context) {
-  let res=await fetch('http://localhost:3000/api/posts');
+  let res=await fetch(`${process.env.BASE_URL}/api/posts`);
   let data=await res.json();
   return {
     props: {
