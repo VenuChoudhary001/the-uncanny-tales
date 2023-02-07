@@ -1,62 +1,11 @@
 import React, { useEffect, useState } from "react";
 import StoryCard, { VerticalStoryCard, ViewStory, ViewStoryModal } from "../components/storyCard";
-import { getData } from "../utils/apiService";
 
-const landing = ({story}) => {
+const Landing = ({story}) => {
   let {data}=story;
   console.log(data)
   const [view,setView]=useState(false);
   const [viewStory,setViewStory]=useState();
-  const stor=[{
-    _id:"sdjksjdks",
-    title:"Hello",
-    des:"lorekdkdskdddddddddddslcnnjkalsjdkjdakldjifncnufneuwoirwhfbrfefjcibvevvneuchoausduferaonaejf"
-  },
-  {
-    _id:"sdjksjs",
-    title:"Hello world",
-    des:"lorekdkdskdddddddddddslcnnjkalsjdkjdakldjifncnufneuwoirwhfbrfefjcibvevvneuchoausduferaonaejf"
-  },
-  {
-    _id:"sdjsjdks",
-    title:"Hello baby",
-    des:"lorekdkdskdddddddddddslcnnjkalsjdkjdakldjifncnufneuwoirwhfbrfefjcibvevvneuchoausduferaonaejf"
-  },
-  
-  {
-    _id:"sdjkjdks",
-    title:"Hello darling",
-    des:"lorekdkdskdddddddddddslcnnjkalsjdkjdakldjifncnufneuwoirwhfbrfefjcibvevvneuchoausduferaonaejf"
-  },{
-    _id:"sdjkjdks",
-    title:"Hello darling",
-    des:"lorekdkdskdddddddddddslcnnjkalsjdkjdakldjifncnufneuwoirwhfbrfefjcibvevvneuchoausduferaonaejf"
-  },
-  ,{
-    _id:"sdjkjdks",
-    title:"Hello darling",
-    des:"lorekdkdskdddddddddddslcnnjkalsjdkjdakldjifncnufneuwoirwhfbrfefjcibvevvneuchoausduferaonaejf"
-  },
-  ,{
-    _id:"sdjkjdks",
-    title:"Hello darling",
-    des:"lorekdkdskdddddddddddslcnnjkalsjdkjdakldjifncnufneuwoirwhfbrfefjcibvevvneuchoausduferaonaejf"
-  },
-  ,{
-    _id:"sdjkjdks",
-    title:"Hello darling",
-    des:"lorekdkdskdddddddddddslcnnjkalsjdkjdakldjifncnufneuwoirwhfbrfefjcibvevvneuchoausduferaonaejf"
-  },
-  ,{
-    _id:"sdjkjdks",
-    title:"Hello darling",
-    des:"lorekdkdskdddddddddddslcnnjkalsjdkjdakldjifncnufneuwoirwhfbrfefjcibvevvneuchoausduferaonaejf"
-  },
-  ,{
-    _id:"sdjkjdks",
-    title:"Hello darling",
-    des:"lorekdkdskdddddddddddslcnnjkalsjdkjdakldjifncnufneuwoirwhfbrfefjcibvevvneuchoausduferaonaejf"
-  }]
   const handleClick=(item)=>{
      setView(true);
      setViewStory(item)
@@ -121,4 +70,4 @@ export async function getStaticProps(context) {
 
 
 
-export default landing;
+export default Landing;
