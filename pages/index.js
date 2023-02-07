@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import StoryCard, { VerticalStoryCard, ViewStory, ViewStoryModal } from "../components/storyCard";
+import { client } from "../utils/sanity.config";
 
 const Landing = ({story}) => {
-  let {data}=story;
-  console.log(data)
   const [view,setView]=useState(false);
   const [viewStory,setViewStory]=useState();
   const handleClick=(item)=>{
@@ -39,7 +38,7 @@ const Landing = ({story}) => {
             <main className="h-[500px] overflow-y-scroll scroll">
 
           <main className="columns-2 md:columns-3  scroll gap-2">
-            {data.map((item,index)=>{
+            {story.map((item,index)=>{
               if(index%2==0) return  <StoryCard handleClick={()=>handleClick(item)} post={item} index={index}/>
               else return <VerticalStoryCard handleClick={()=>handleClick(item)} post={item}/>
             })}
@@ -55,9 +54,9 @@ const Landing = ({story}) => {
 };
 
 
+
 export async function getStaticProps(context) {
-  let res=await fetch(`${process.env.BASE_URL}/api/posts`);
-  let data=await res.json();
+  const data=await client.fetch("*[_type=='post']");
   return {
     props: {
       story:data
