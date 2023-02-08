@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
-import StoryCard, { VerticalStoryCard, ViewStory, ViewStoryModal } from "../components/storyCard";
-import { client } from "../utils/sanity.config";
+import StoryCard, {
+  VerticalStoryCard,
+  ViewStory,
+  ViewStoryModal,
+} from "../components/storyCard";
+import { client } from "../utils/sanity.cli.config";
 
-const Landing = ({story}) => {
-  const [view,setView]=useState(false);
-  const [viewStory,setViewStory]=useState();
-  const handleClick=(item)=>{
-     setView(true);
-     setViewStory(item)
-  }
+const Landing = ({ story }) => {
+  const [view, setView] = useState(false);
+  const [viewStory, setViewStory] = useState();
+  const handleClick = (item) => {
+    setView(true);
+    setViewStory(item);
+  };
 
-  useEffect(()=>{
-    if(view){
-      document.body.style.overflow='hidden'
+  useEffect(() => {
+    if (view) {
+      document.body.style.overflow = "hidden";
     }
-  },[view])
+  }, [view]);
 
   return (
     <>
@@ -36,37 +40,43 @@ const Landing = ({story}) => {
             </div>
             <hr className="w-full max-w-[600px] h-[2px] bg-gray-300" />
             <main className="h-[500px] overflow-y-scroll scroll">
-
-          <main className="columns-2 md:columns-3  scroll gap-2">
-            {story.map((item,index)=>{
-              if(index%2==0) return  <StoryCard handleClick={()=>handleClick(item)} post={item} index={index}/>
-              else return <VerticalStoryCard handleClick={()=>handleClick(item)} post={item}/>
-            })}
+              <main className="columns-2 md:columns-3  scroll gap-2">
+                {story.map((item, index) => {
+                  if (index % 2 == 0)
+                    return (
+                      <StoryCard
+                        handleClick={() => handleClick(item)}
+                        post={item}
+                        index={index}
+                      />
+                    );
+                  else
+                    return (
+                      <VerticalStoryCard
+                        handleClick={() => handleClick(item)}
+                        post={item}
+                      />
+                    );
+                })}
+              </main>
             </main>
           </main>
-          </main>
-         {view &&  <ViewStory post={viewStory}/>}
+          {view && <ViewStory post={viewStory} />}
         </main>
       </section>
-          {view && <ViewStoryModal viewStory={viewStory} setView={setView}/>}
+      {view && <ViewStoryModal viewStory={viewStory} setView={setView} />}
     </>
   );
 };
 
-
-
 export async function getStaticProps(context) {
-  const data=await client.fetch("*[_type=='post']");
+  const data = await client.fetch("*[_type=='post']");
   return {
     props: {
-      story:data
+      story: data,
     }, // will be passed to the page component as props
-  }
+    revalidate:50
+  };
 }
-
-
-
-
-
 
 export default Landing;

@@ -76,7 +76,6 @@ export const ViewStory = ({post}) => {
 };
 
 export const ViewStoryModal = ({viewStory,setView}) => {
-  console.log(viewStory)
   return (
     <>
       <main 
