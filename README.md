@@ -1,9 +1,6 @@
+[![Group-16-2.png](https://i.postimg.cc/tTXBvLj7/Group-16-2.png)](https://postimg.cc/gwTyntrP)
 
-
-
-[![Group-16.png](https://i.postimg.cc/KvWzQp4x/Group-16.png)](https://postimg.cc/Yh1MC31s)
-
-[![The-Uncanny-Tales.png](https://i.postimg.cc/Jh0LsZb0/The-Uncanny-Tales.png)](https://postimg.cc/zysMML2Y)
+[![The-Uncanny-Tales-1.png](https://i.postimg.cc/ZYQWwpPh/The-Uncanny-Tales-1.png)](https://postimg.cc/PNmfxLF6)
 
 ![MIT License](https://img.shields.io/badge/TheUncannyTales-my%20spy--lens-red)
 
