@@ -11,6 +11,12 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'description',
+      title: 'description',
+      type: 'string',
+      validation:Rule=> Rule.max(50)
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',

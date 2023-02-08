@@ -7,6 +7,7 @@ import StoryCard, {
 import { client } from "../utils/sanity.cli.config";
 
 const Landing = ({ story }) => {
+  console.log(story)
   const [view, setView] = useState(false);
   const [viewStory, setViewStory] = useState();
   const handleClick = (item) => {
@@ -75,7 +76,7 @@ export async function getStaticProps(context) {
     props: {
       story: data,
     }, // will be passed to the page component as props
-    revalidate:50
+    revalidate:10
   };
 }
 
